@@ -31,5 +31,7 @@ mapWorld = borders("world", colour="black", fill="black") # create a layer of bo
 mp = ggplot() + mapWorld
 
 # final plot of lanslides between the years 2007 and 2016, denoted by different colours
-mp + geom_point(data =landslide, aes(x = longitude, y = latitude, colour = factor(year)), size = 1)
+ls_plot = mp + geom_point(data =landslide, aes(x = longitude, y = latitude, colour = factor(year)), size = 1)
+print(ls_plot)
 
+ggsave(ls_plot, file="landslides_plot.png")
